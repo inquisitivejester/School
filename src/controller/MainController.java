@@ -55,6 +55,11 @@ public class MainController implements Initializable {
         parts_cost_per_unit.setCellValueFactory(new PropertyValueFactory<>("price"));
 
     }
+
+
+
+
+
         public void onModifyProducts(ActionEvent actionEvent) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPoduct.fxml"));
             Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();

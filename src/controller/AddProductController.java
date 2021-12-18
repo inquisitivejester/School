@@ -10,7 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import controller.MainController;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,6 +40,15 @@ public class AddProductController implements Initializable {
     public TableColumn topTableInventoryLevel;
     public TableColumn topTablePrice;
 
+
+    private void toMainScreen(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, 1200, 600);
+        stage.setTitle("Main Screen");
+        stage.setScene(scene);
+        stage.show();
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){}
 
@@ -47,7 +58,8 @@ public class AddProductController implements Initializable {
     public void onRemoveAssociation(ActionEvent actionEvent) {
     }
 
-    public void onCancel(ActionEvent actionEvent) {
+    public void onCancel(ActionEvent actionEvent) throws IOException {
+    toMainScreen(actionEvent);
 
     }
 

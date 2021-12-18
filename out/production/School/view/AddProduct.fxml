@@ -38,7 +38,7 @@
             </ScrollPane>
             <StackPane prefHeight="31.0" prefWidth="400.0">
                <children>
-                  <Button fx:id="AddProductPageAdd" mnemonicParsing="false" text="Add" StackPane.alignment="CENTER_RIGHT">
+                  <Button fx:id="AddProductPageAdd" mnemonicParsing="false" onAction="#onAdd" text="Add" StackPane.alignment="CENTER_RIGHT">
                      <StackPane.margin>
                         <Insets right="50.0" />
                      </StackPane.margin>
@@ -51,7 +51,7 @@
          <children>
             <ScrollPane>
                <content>
-                  <TableView fx:id = "bottomTable" prefHeight="251.0" prefWidth="400.0">
+                  <TableView fx:id="bottomTable" prefHeight="251.0" prefWidth="400.0">
                     <columns>
                       <TableColumn fx:id="bottomTablePartId" prefWidth="100.0" text="Part ID" />
                       <TableColumn fx:id="bottomTablePartName" prefWidth="100.0" text="Part Name" />
@@ -66,17 +66,17 @@
             </ScrollPane>
             <StackPane prefHeight="64.0" prefWidth="400.0">
                <children>
-                  <Button fx:id="addProductRemoveAssociatedPart" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Remove Associated Part" StackPane.alignment="TOP_RIGHT">
+                  <Button fx:id="addProductRemoveAssociatedPart" mnemonicParsing="false" onAction="#onRemoveAssociation" prefHeight="25.0" prefWidth="125.0" text="Remove Associated Part" StackPane.alignment="TOP_RIGHT">
                      <StackPane.margin>
                         <Insets right="50.0" top="2.0" />
                      </StackPane.margin>
                   </Button>
-                  <Button fx:id="addProductCancel" mnemonicParsing="false" text="Cancel" StackPane.alignment="BOTTOM_RIGHT">
+                  <Button fx:id="addProductCancel" mnemonicParsing="false" onAction="#onCancel" text="Cancel" StackPane.alignment="BOTTOM_RIGHT">
                      <StackPane.margin>
                         <Insets bottom="5.0" right="50.0" />
                      </StackPane.margin>
                   </Button>
-                  <Button fx:id="addProductSaveButton" mnemonicParsing="false" text="Save" StackPane.alignment="BOTTOM_CENTER">
+                  <Button fx:id="addProductSaveButton" mnemonicParsing="false" onAction="#onSave" text="Save" StackPane.alignment="BOTTOM_CENTER">
                      <StackPane.margin>
                         <Insets bottom="5.0" left="100.0" />
                      </StackPane.margin>
