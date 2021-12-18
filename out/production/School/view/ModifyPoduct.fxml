@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyProductController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="345.0" minHeight="0.0" prefHeight="292.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="312.0" minHeight="10.0" prefHeight="311.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <ScrollPane>
+               <content>
+                  <TableView fx:id="topTable" prefHeight="254.0" prefWidth="400.0">
+                    <columns>
+                      <TableColumn fx:id="topPartIdColumn" prefWidth="100.0" text="Part ID" />
+                      <TableColumn fx:id="topPartNameColumn" prefWidth="100.0" text="Part Name" />
+                        <TableColumn fx:id="topInventoryLevelColumn" prefWidth="100.0" text="Inventory Level" />
+                        <TableColumn fx:id="topPriceColumn" prefWidth="100.0" text="Price/ Cost per Unit" />
+                    </columns>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TableView>
+               </content>
+               <VBox.margin>
+                  <Insets right="50.0" />
+               </VBox.margin>
+            </ScrollPane>
+            <StackPane prefHeight="31.0" prefWidth="400.0">
+               <children>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#onAddButton" text="Add" StackPane.alignment="CENTER_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="50.0" />
+                     </StackPane.margin>
+                  </Button>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <children>
+            <ScrollPane>
+               <content>
+                  <TableView fx:id="bottomTable" prefHeight="251.0" prefWidth="400.0">
+                    <columns>
+                      <TableColumn fx:id="bottomPartIdColumn" prefWidth="100.0" text="Part ID" />
+                      <TableColumn fx:id="bottomPartNameColumn" prefWidth="100.0" text="Part Name" />
+                        <TableColumn fx:id="bottomInventoryLevelColumn" prefWidth="100.0" text="Inventory Level" />
+                        <TableColumn fx:id="bottomPriceColumn" prefWidth="100.0" text="Price/ Cost per unit" />
+                    </columns>
+                  </TableView>
+               </content>
+               <VBox.margin>
+                  <Insets right="50.0" />
+               </VBox.margin>
+            </ScrollPane>
+            <StackPane prefHeight="64.0" prefWidth="400.0">
+               <children>
+                  <Button fx:id="removeAssociatedButton" mnemonicParsing="false" onAction="#onRemoveAssociatedButton" prefHeight="25.0" prefWidth="125.0" text="Remove Associated Part" StackPane.alignment="TOP_RIGHT">
+                     <StackPane.margin>
+                        <Insets right="50.0" top="2.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#onCancelButton" text="Cancel" StackPane.alignment="BOTTOM_RIGHT">
+                     <StackPane.margin>
+                        <Insets bottom="5.0" right="50.0" />
+                     </StackPane.margin>
+                  </Button>
+                  <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSaveButton" text="Save" StackPane.alignment="BOTTOM_CENTER">
+                     <StackPane.margin>
+                        <Insets bottom="5.0" left="100.0" />
+                     </StackPane.margin>
+                  </Button>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+      <GridPane GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="118.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="282.0" minWidth="10.0" prefWidth="282.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="149.0" minHeight="10.0" prefHeight="129.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="69.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane>
+               <children>
+                  <StackPane prefHeight="150.0" prefWidth="200.0" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Label prefHeight="35.0" prefWidth="124.0" text="Modify Product">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children></StackPane>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="ID" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="50.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <children>
+                  <Label text="Name" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="50.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="3">
+               <children>
+                  <Label text="INV" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="50.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <TextField fx:id="IDTextBox" editable="false" prefHeight="27.0" prefWidth="40.0" promptText="Auto Gen - Disabled">
+                     <StackPane.margin>
+                        <Insets right="100.0" />
+                     </StackPane.margin>
+                  </TextField>
+               </children>
+            </StackPane>
+            <StackPane layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <TextField fx:id="nameTextBox">
+                     <StackPane.margin>
+                        <Insets right="100.0" />
+                     </StackPane.margin>
+                  </TextField>
+               </children>
+            </StackPane>
+            <StackPane layoutX="10.0" layoutY="143.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <TextField fx:id="invTextBox">
+                     <StackPane.margin>
+                        <Insets right="200.0" />
+                     </StackPane.margin>
+                  </TextField>
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="118.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="290.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="99.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="208.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="264.0" minHeight="10.0" prefHeight="243.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <Label text="Price" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="50.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="Max" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets left="50.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="priceTextBox">
+                     <StackPane.margin>
+                        <Insets right="200.0" />
+                     </StackPane.margin>
+                  </TextField>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" StackPane.alignment="CENTER_LEFT">
+                     <children>
+                        <TextField fx:id="maxTextBox" prefHeight="25.0" prefWidth="86.0">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label text="Min">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="minTextBox" />
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="searchBar" alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="213.0" promptText="Search by Part ID or Name">
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+   </children>
+</GridPane>
