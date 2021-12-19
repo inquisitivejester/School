@@ -18,24 +18,20 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <ScrollPane>
-               <content>
-                  <TableView fx:id="topTable" prefHeight="254.0" prefWidth="400.0">
-                    <columns>
-                      <TableColumn fx:id="topTablePartId" prefWidth="100.0" text="Part ID" />
-                      <TableColumn fx:id="topTablePartName" prefWidth="100.0" text="Part Name" />
-                        <TableColumn fx:id="topTableInventoryLevel" prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn fx:id="topTablePrice" prefWidth="100.0" text="Price/ Cost per Unit" />
-                    </columns>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TableView>
-               </content>
+            <TableView fx:id="topTable" prefHeight="254.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="topTablePartId" prefWidth="100.0" text="Part ID" />
+                <TableColumn fx:id="topTablePartName" prefWidth="100.0" text="Part Name" />
+                  <TableColumn fx:id="topTableInventoryLevel" prefWidth="100.0" text="Inventory Level" />
+                  <TableColumn fx:id="topTablePrice" prefWidth="100.0" text="Price/ Cost per Unit" />
+              </columns>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <VBox.margin>
                   <Insets right="50.0" />
                </VBox.margin>
-            </ScrollPane>
+            </TableView>
             <StackPane prefHeight="31.0" prefWidth="400.0">
                <children>
                   <Button fx:id="AddProductPageAdd" mnemonicParsing="false" onAction="#onAdd" text="Add" StackPane.alignment="CENTER_RIGHT">
@@ -49,21 +45,17 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <ScrollPane>
-               <content>
-                  <TableView fx:id="bottomTable" prefHeight="251.0" prefWidth="400.0">
-                    <columns>
-                      <TableColumn fx:id="bottomTablePartId" prefWidth="100.0" text="Part ID" />
-                      <TableColumn fx:id="bottomTablePartName" prefWidth="100.0" text="Part Name" />
-                        <TableColumn fx:id="bottomTableInventoryLevel" prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn fx:id="bottomTablePrice" prefWidth="100.0" text="Price/ Cost per unit" />
-                    </columns>
-                  </TableView>
-               </content>
+            <TableView fx:id="bottomTable" prefHeight="251.0" prefWidth="400.0">
+              <columns>
+                <TableColumn fx:id="bottomTablePartId" prefWidth="100.0" text="Part ID" />
+                <TableColumn fx:id="bottomTablePartName" prefWidth="100.0" text="Part Name" />
+                  <TableColumn fx:id="bottomTableInventoryLevel" prefWidth="100.0" text="Inventory Level" />
+                  <TableColumn fx:id="bottomTablePrice" prefWidth="100.0" text="Price/ Cost per unit" />
+              </columns>
                <VBox.margin>
                   <Insets right="50.0" />
                </VBox.margin>
-            </ScrollPane>
+            </TableView>
             <StackPane prefHeight="64.0" prefWidth="400.0">
                <children>
                   <Button fx:id="addProductRemoveAssociatedPart" mnemonicParsing="false" onAction="#onRemoveAssociation" prefHeight="25.0" prefWidth="125.0" text="Remove Associated Part" StackPane.alignment="TOP_RIGHT">
