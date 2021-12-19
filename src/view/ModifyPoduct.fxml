@@ -98,6 +98,9 @@
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets left="10.0" />
+                           </StackPane.margin>
                         </Label>
                      </children></StackPane>
                </children>

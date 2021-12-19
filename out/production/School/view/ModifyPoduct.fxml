@@ -45,21 +45,17 @@
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <ScrollPane>
-               <content>
-                  <TableView fx:id="bottomTable" prefHeight="251.0" GridPane.fillWidth="True">
-                    <columns>
-                      <TableColumn fx:id="bottomPartIdColumn" prefWidth="100.0" text="Part ID" />
-                      <TableColumn fx:id="bottomPartNameColumn" prefWidth="100.0" text="Part Name" />
-                        <TableColumn fx:id="bottomInventoryLevelColumn" prefWidth="100.0" text="Inventory Level" />
-                        <TableColumn fx:id="bottomPriceColumn" prefWidth="100.0" text="Price/ Cost per unit" />
-                    </columns>
-                  </TableView>
-               </content>
+            <TableView fx:id="bottomTable" prefHeight="251.0">
+              <columns>
+                <TableColumn fx:id="bottomPartIdColumn" prefWidth="100.0" text="Part ID" />
+                <TableColumn fx:id="bottomPartNameColumn" prefWidth="100.0" text="Part Name" />
+                  <TableColumn fx:id="bottomInventoryLevelColumn" prefWidth="100.0" text="Inventory Level" />
+                  <TableColumn fx:id="bottomPriceColumn" prefWidth="100.0" text="Price/ Cost per unit" />
+              </columns>
                <VBox.margin>
                   <Insets right="50.0" />
                </VBox.margin>
-            </ScrollPane>
+            </TableView>
             <StackPane prefHeight="64.0" prefWidth="400.0">
                <children>
                   <Button fx:id="removeAssociatedButton" mnemonicParsing="false" onAction="#onRemoveAssociatedButton" prefHeight="25.0" prefWidth="125.0" text="Remove Associated Part" StackPane.alignment="TOP_RIGHT">
@@ -102,6 +98,9 @@
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
+                           <StackPane.margin>
+                              <Insets left="10.0" />
+                           </StackPane.margin>
                         </Label>
                      </children></StackPane>
                </children>
