@@ -6,16 +6,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import controller.MainController;
 import javafx.stage.Stage;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AddProductController implements Initializable {
@@ -59,6 +57,14 @@ public class AddProductController implements Initializable {
     }
 
     public void onCancel(ActionEvent actionEvent) throws IOException {
+
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Cancel");
+        alert.setHeaderText("Canceling ");
+        alert.setContentText("Select OK to ignore your changes and return to the main screen.");
+        Optional<ButtonType> result = alert.showAndWait();
+
     toMainScreen(actionEvent);
 
     }
