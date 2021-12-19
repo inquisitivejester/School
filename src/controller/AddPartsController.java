@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +23,11 @@ public class AddPartsController implements Initializable {
     public Label machine_id_company_name_label;
     public Button add_part_save_button;
     public Button add_part_cancel_button;
+    public TextField priceTextBox;
+    public TextField invTextBox;
+    public TextField maxTextBox;
+    public TextField machineIdTextBox;
+    public TextField minTextBox;
 
     private void toMainScreen(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -46,4 +52,5 @@ public class AddPartsController implements Initializable {
     public void onCancel(ActionEvent actionEvent) throws IOException {
         toMainScreen(actionEvent);
     }
+
 }
