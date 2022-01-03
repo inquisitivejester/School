@@ -1,5 +1,7 @@
 package controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.Inventory;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -121,10 +124,56 @@ public class MainController implements Initializable {
             System.out.println("Pushed exit");
         }
 
-        public void onKeyPartsSearch(KeyEvent keyEvent) {
+        public void onKeyProductsSearch(KeyEvent keyEvent) {
 
         }
 
-        public void onKeyProductsSearch(KeyEvent keyEvent) {
+
+
+
+        public void onKeyPartsSearch(KeyEvent keyEvent) {
+            String searchString = parts_text_box.getText();
+
+            ObservableList<Part> theseParts = searchPartName(searchString);
+
+            if(theseParts.size() == 0){
+                try{
+                    int partId = Integer.parseInt(searchString);
+                    Part fp = getPartId(partId);
+                    if(fp != null)
+                        theseParts.add(fp);
+                }
+                catch(NumberFormatException n){
+                    //ignore
+
+                }
+            }
+
+            parts_table.setItems(theseParts);
+
+        }
+
+        private ObservableList<Part> searchPartName(String partName){
+            ObservableList<Part> foundParts = FXCollections.observableArrayList();
+
+            ObservableList<Part> allParts = Inventory.getParts();
+
+            for(Part fp : allParts){
+                if(fp.getName().contains(partName)){
+                    foundParts.add(fp);
+                }
+            }
+            return foundParts;
+        }
+
+        private Part getPartId(int partId){
+            ObservableList<Part> allParts = Inventory.getParts();
+
+            for(Part fp : allParts){
+                if(fp.getId() == partId){
+                    return fp;
+                }
+            }
+        return null;
         }
 }

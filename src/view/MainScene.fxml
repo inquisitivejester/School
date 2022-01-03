@@ -43,7 +43,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="parts_text_box" onKeyTyped="#onKeyPartsSearch" prefHeight="25.0" prefWidth="436.0" promptText="Search by Part ID or Name" />
+                  <TextField fx:id="parts_text_box" onKeyReleased="#onKeyPartsSearch" prefHeight="25.0" prefWidth="436.0" promptText="Search by Part ID or Name" />
                </children>
             </HBox>
          </top>
