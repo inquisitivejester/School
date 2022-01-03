@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AddPartsController">
    <children>
       <GridPane layoutX="3.0" layoutY="1.0" prefHeight="600.0" prefWidth="500.0">
@@ -141,7 +142,8 @@
                         <Insets right="25.0" />
                      </StackPane.margin>
                   </ButtonBar>
-               </children></StackPane>
+               </children>
+            </StackPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="8" />
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          </children>

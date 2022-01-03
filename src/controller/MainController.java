@@ -1,7 +1,5 @@
 package controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,10 +8,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.Inventory;
-import model.Part;
-import model.Wheel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,7 +44,7 @@ public class MainController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        parts_table.setItems(Inventory.getparts());
+        parts_table.setItems(Inventory.getParts());
 
         part_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         part_name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -56,8 +53,14 @@ public class MainController implements Initializable {
 
     }
 
-
-
+        private void toMainScreen(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root, 1200, 600);
+            stage.setTitle("Main Screen");
+            stage.setScene(scene);
+            stage.show();
+        }
 
 
         public void onModifyProducts(ActionEvent actionEvent) throws IOException {
@@ -78,9 +81,6 @@ public class MainController implements Initializable {
             stage.show();
         }
 
-        public void onDeleteProducts(ActionEvent actionEvent){
-            System.out.println("Pushed delete Products");
-        }
 
         public void toAddParts(ActionEvent actionEvent) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("/view/AddPart.fxml"));
@@ -101,6 +101,10 @@ public class MainController implements Initializable {
             stage.show();
         }
 
+        public void onDeleteProducts(ActionEvent actionEvent){
+            System.out.println("Pushed delete Products");
+        }
+
         public void onDeleteParts(ActionEvent actionEvent){
             System.out.println("Pushed delete parts");
         }
@@ -108,4 +112,11 @@ public class MainController implements Initializable {
         public void onExit(ActionEvent actionEvent){
             System.out.println("Pushed exit");
         }
-    }
+
+        public void onKeyPartsSearch(KeyEvent keyEvent) {
+
+        }
+
+        public void onKeyProductsSearch(KeyEvent keyEvent) {
+        }
+}
