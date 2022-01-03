@@ -51,6 +51,14 @@ public class MainController implements Initializable {
         parts_inventory_level.setCellValueFactory(new PropertyValueFactory<>("stock"));
         parts_cost_per_unit.setCellValueFactory(new PropertyValueFactory<>("price"));
 
+        products_table.setItems(Inventory.getProducts());
+
+        product_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+        product_name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        products_inventory_level.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        product_cost_per_unit.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+
     }
 
         private void toMainScreen(ActionEvent event) throws IOException {

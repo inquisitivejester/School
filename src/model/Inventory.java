@@ -23,6 +23,7 @@ public class Inventory {
     }
 
     public static ObservableList<Part> getParts(){
+
         return inventory;
     }
 
@@ -36,8 +37,10 @@ public class Inventory {
         Inventory.addParts(handlebar);
         Inventory.addParts(seat);
 
-
-
+        AvailableProducts car = new AvailableProducts(uniqueId(), "Car", 20000, 6, 4, 10);
+        AvailableProducts bike = new AvailableProducts(uniqueId(), "Bike", 200, 20, 5, 40);
+        Inventory.addProducts(car);
+        Inventory.addProducts(bike);
 
     }
     private static ObservableList<Product> productInventory = FXCollections.observableArrayList();
@@ -46,13 +49,20 @@ public class Inventory {
         productInventory.add(product);
 
     }
-    public static ObservableList<Product> getProducts(){return productInventory;}
+    public static ObservableList<Product> getProducts(){
+
+        return productInventory;
+    }
 
 
     private static ObservableList<Part> associatedPartsInventory = FXCollections.observableArrayList();
 
     public static void addAssociatedParts(Part part){
         associatedPartsInventory.add(part);
+    }
+    public static ObservableList<Part> getAssociatedPartsInventory(){
+
+        return associatedPartsInventory;
     }
 
 }
