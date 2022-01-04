@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static model.Inventory.getParts;
+
 public class MainController implements Initializable {
     public TableColumn part_id;
     public TableColumn parts_inventory_level;
@@ -46,8 +48,10 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        getParts();
 
-        parts_table.setItems(Inventory.getParts());
+
+        parts_table.setItems(getParts());
 
         part_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         part_name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -154,7 +158,7 @@ public class MainController implements Initializable {
         private ObservableList<Part> searchPartName(String partName){
             ObservableList<Part> foundParts = FXCollections.observableArrayList();
 
-            ObservableList<Part> allParts = Inventory.getParts();
+            ObservableList<Part> allParts = getParts();
 
             for(Part fp : allParts){
                 if(fp.getName().contains(partName)){
@@ -165,7 +169,7 @@ public class MainController implements Initializable {
         }
 
         private Part getPartId(int partId){
-            ObservableList<Part> allParts = Inventory.getParts();
+            ObservableList<Part> allParts = getParts();
 
             for(Part fp : allParts){
                 if(fp.getId() == partId){

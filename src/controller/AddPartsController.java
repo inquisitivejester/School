@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static model.Inventory.getParts;
+
 public class AddPartsController implements Initializable {
     public RadioButton in_house_radio_button;
     public Label name_label;
@@ -38,7 +40,11 @@ public class AddPartsController implements Initializable {
         stage.show();
     }
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){}
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        getParts();
+
+
+    }
 
     public void onInHouse(ActionEvent actionEvent) {
     }
@@ -47,10 +53,21 @@ public class AddPartsController implements Initializable {
     }
 
     public void onSave(ActionEvent actionEvent) {
+        String priceString = priceTextBox.getText();
+        try {
+            double priceAdded = Double.parseDouble(priceString);
+
+        }
+        catch(NumberFormatException d){
+            System.out.println("Not a double jackass");
+            }
+
+
     }
 
     public void onCancel(ActionEvent actionEvent) throws IOException {
         toMainScreen(actionEvent);
     }
+
 
 }
