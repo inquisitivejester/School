@@ -145,12 +145,10 @@ public class MainController implements Initializable {
                 }
                 catch(NumberFormatException n){
                     //ignore
-
                 }
             }
 
             parts_table.setItems(theseParts);
-
         }
 
         private ObservableList<Part> searchPartName(String partName){

@@ -39,8 +39,10 @@ public class Inventory {
 
         AvailableProducts car = new AvailableProducts(uniqueId(), "Car", 20000, 6, 4, 10);
         AvailableProducts bike = new AvailableProducts(uniqueId(), "Bike", 200, 20, 5, 40);
+        AvailableProducts helicopter = new AvailableProducts(uniqueId(), "Helicopter", 2000000, 2, 2, 3);
         Inventory.addProducts(car);
         Inventory.addProducts(bike);
+        Inventory.addProducts(helicopter);
 
     }
 
