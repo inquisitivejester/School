@@ -30,6 +30,8 @@ public class AddPartsController implements Initializable {
     public TextField maxTextBox;
     public TextField machineIdTextBox;
     public TextField minTextBox;
+    public TextField idTextBox;
+    public TextField nameTextbox;
 
     private void toMainScreen(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -61,6 +63,45 @@ public class AddPartsController implements Initializable {
         catch(NumberFormatException d){
             System.out.println("Not a double jackass");
             }
+        String invString = invTextBox.getText();
+        try{
+            int invAdded = Integer.parseInt(invString);
+        }
+        catch (NumberFormatException e){
+            System.out.println("Not an Integer");
+        }
+        String maxString = maxTextBox.getText();
+        try{
+            int maxAdded = Integer.parseInt(maxString);
+        }
+        catch(NumberFormatException f){
+            System.out.println("Not an Integer");
+        }
+        String minString = minTextBox.getText();
+        try{
+            int minAdded = Integer.parseInt(minString);
+        }
+        catch(NumberFormatException g){
+            System.out.println("Not an Integer");
+        }
+        String idString = machineIdTextBox.getText();
+        try{
+            int idAdded = Integer.parseInt(idString);
+        }
+        catch(NumberFormatException h){
+            System.out.println("Not an Integer");
+        }
+        if(nameTextbox.getText().length() > 0 ){
+            String nameString = nameTextbox.getText();}
+        else{
+            System.out.println("You didn't add a name.");
+        }
+
+
+
+
+
+
 
 
     }
