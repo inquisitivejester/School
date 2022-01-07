@@ -11,12 +11,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Inventory;
+import model.Part;
+import model.availableParts;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static model.Inventory.getParts;
+import static model.Inventory.uniqueId;
 
 public class AddPartsController implements Initializable {
     public RadioButton in_house_radio_button;
@@ -41,6 +45,8 @@ public class AddPartsController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         getParts();
@@ -55,56 +61,59 @@ public class AddPartsController implements Initializable {
     }
 
     public void onSave(ActionEvent actionEvent) {
-        String priceString = priceTextBox.getText();
         try {
-            double priceAdded = Double.parseDouble(priceString);
+            String priceString = priceTextBox.getText();
+            double price = 0;
+            try {
+                price = Double.parseDouble(priceString);
 
-        }
-        catch(NumberFormatException d){
-            System.out.println("Not a double jackass");
+            } catch (NumberFormatException d) {
+                System.out.println("Not a double jackass");
             }
-        String invString = invTextBox.getText();
-        try{
-            int invAdded = Integer.parseInt(invString);
+            String invString = invTextBox.getText();
+            int stock = 0;
+            try {
+                stock = Integer.parseInt(invString);
+            } catch (NumberFormatException e) {
+                System.out.println("Not an Integer");
+            }
+            String maxString = maxTextBox.getText();
+            int max = 0;
+            try {
+                max = Integer.parseInt(maxString);
+            } catch (NumberFormatException f) {
+                System.out.println("Not an Integer");
+            }
+            String minString = minTextBox.getText();
+            int min = 0;
+            try {
+                min = Integer.parseInt(minString);
+            } catch (NumberFormatException g) {
+                System.out.println("Not an Integer");
+            }
+            String idString = machineIdTextBox.getText();
+            try {
+                int id = Integer.parseInt(idString);
+            } catch (NumberFormatException h) {
+                System.out.println("Not an Integer");
+            }
+            String name = null;
+            if (nameTextbox.getText().length() > 0) {
+                name = nameTextbox.getText();
+            } else {
+                System.out.println("You didn't add a name.");
+            }
+            /*String name = nameTextbox.getText();*/
+
+            availableParts newAvailablePart = new availableParts(uniqueId(), name, price, stock, min, max);
+            Inventory.addParts(newAvailablePart);
         }
-        catch (NumberFormatException e){
-            System.out.println("Not an Integer");
-        }
-        String maxString = maxTextBox.getText();
-        try{
-            int maxAdded = Integer.parseInt(maxString);
-        }
-        catch(NumberFormatException f){
-            System.out.println("Not an Integer");
-        }
-        String minString = minTextBox.getText();
-        try{
-            int minAdded = Integer.parseInt(minString);
-        }
-        catch(NumberFormatException g){
-            System.out.println("Not an Integer");
-        }
-        String idString = machineIdTextBox.getText();
-        try{
-            int idAdded = Integer.parseInt(idString);
-        }
-        catch(NumberFormatException h){
-            System.out.println("Not an Integer");
-        }
-        if(nameTextbox.getText().length() > 0 ){
-            String nameString = nameTextbox.getText();}
-        else{
-            System.out.println("You didn't add a name.");
+        catch(Exception a){
+            System.out.println("Nothing Worked");
+
+            }
         }
 
-
-
-
-
-
-
-
-    }
 
     public void onCancel(ActionEvent actionEvent) throws IOException {
         toMainScreen(actionEvent);

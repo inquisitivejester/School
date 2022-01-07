@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import controller.MainController;
 import javafx.stage.Stage;
+import main.Main;
 
 
 import java.io.IOException;
@@ -64,6 +65,8 @@ public class AddProductController implements Initializable {
         alert.setHeaderText("Canceling ");
         alert.setContentText("Select OK to ignore your changes and return to the main screen.");
         Optional<ButtonType> result = alert.showAndWait();
+
+        
 
     toMainScreen(actionEvent);
 
