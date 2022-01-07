@@ -59,16 +59,4 @@ public class Inventory {
     }
 
 
-    private static ObservableList<Part> associatedPartsInventory = FXCollections.observableArrayList();
-
-    public static void addAssociatedParts(Part part){
-
-        associatedPartsInventory.add(part);
-    }
-    public static ObservableList<Part> getAssociatedPartsInventory(){
-
-        return associatedPartsInventory;
-    }
-
-
 }

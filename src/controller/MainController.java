@@ -41,8 +41,9 @@ public class MainController implements Initializable {
     public Label products_label;
     public TextField products_text_box;
     public Button exit_button;
-    public TableView parts_table;
+    public TableView<Part> parts_table;
     public TableView products_table;
+    private static Part partToModify;
 
 
     @Override
@@ -67,6 +68,9 @@ public class MainController implements Initializable {
 
 
     }
+        public static Part getPartToModify() {
+            return partToModify;
+        }
 
         private void toMainScreen(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -108,12 +112,20 @@ public class MainController implements Initializable {
         }
 
         public void onModifyParts(ActionEvent actionEvent) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPart.fxml"));
-            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setTitle("Modify Parts");
-            stage.setScene(scene);
-            stage.show();
+
+            partToModify = parts_table.getSelectionModel().getSelectedItem();
+            if (partToModify == null) {
+                System.out.println("Need an alert for partToModify");
+            } else {
+
+
+                Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPart.fxml"));
+                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setTitle("Modify Parts");
+                stage.setScene(scene);
+                stage.show();
+            }
         }
 
         public void onDeleteProducts(ActionEvent actionEvent){

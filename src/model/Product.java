@@ -1,6 +1,9 @@
 package model;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 /**
  *
  * @author Bryant Shipman
@@ -104,5 +107,24 @@ public abstract class Product {
     public void setMax(int max) {
         this.max = max;
     }
+
+    public void addAssociatedPart(Part part){
+
+    }
+    /*public boolean deleteAssociatedPart(selectedAssociatedPart Part){
+        return True;
+    }*/
+
+    private static ObservableList<Part> associatedPartsInventory = FXCollections.observableArrayList();
+
+    public static void addAssociatedParts(Part part){
+
+        associatedPartsInventory.add(part);
+    }
+    public static ObservableList<Part> getAssociatedPartsInventory(){
+
+        return associatedPartsInventory;
+    }
+
 
 }

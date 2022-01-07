@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +11,7 @@ import javafx.scene.control.*;
 import controller.MainController;
 import javafx.stage.Stage;
 import main.Main;
+import model.Part;
 
 
 import java.io.IOException;
@@ -74,4 +76,6 @@ public class AddProductController implements Initializable {
 
     public void onSave(ActionEvent actionEvent) {
     }
+
+
 }

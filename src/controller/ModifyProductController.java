@@ -51,7 +51,10 @@ public class ModifyProductController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){}
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
+
+    }
 
     public void onAddButton(ActionEvent actionEvent) {
     }
