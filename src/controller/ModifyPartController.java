@@ -60,9 +60,11 @@ public class ModifyPartController implements Initializable {
     }
 
     public void onInHouse(ActionEvent actionEvent) {
+        machine_id_company_name_label.setText("Machine ID");
     }
 
     public void onOutsourced(ActionEvent actionEvent) {
+        machine_id_company_name_label.setText("Company Name");
     }
 
     public void onSave(ActionEvent actionEvent) {

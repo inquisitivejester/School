@@ -54,9 +54,11 @@ public class AddPartsController implements Initializable {
     }
 
     public void onInHouse(ActionEvent actionEvent) {
+        machine_id_company_name_label.setText("Machine ID");
     }
 
     public void onOutSourced(ActionEvent actionEvent) {
+        machine_id_company_name_label.setText("Company Name");
     }
 
     public void onSave(ActionEvent actionEvent) {
@@ -102,7 +104,7 @@ public class AddPartsController implements Initializable {
             } else {
                 System.out.println("You didn't add a name.");
             }
-            /*String name = nameTextbox.getText();*/
+
 
             InHouse newAvailablePart = new InHouse(uniqueId(), name, price, stock, min, max);
             Inventory.addParts(newAvailablePart);
