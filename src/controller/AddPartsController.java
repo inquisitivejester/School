@@ -12,8 +12,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Inventory;
-import model.Part;
-import model.availableParts;
+import model.InHouse;
 
 import java.io.IOException;
 import java.net.URL;
@@ -105,7 +104,7 @@ public class AddPartsController implements Initializable {
             }
             /*String name = nameTextbox.getText();*/
 
-            availableParts newAvailablePart = new availableParts(uniqueId(), name, price, stock, min, max);
+            InHouse newAvailablePart = new InHouse(uniqueId(), name, price, stock, min, max);
             Inventory.addParts(newAvailablePart);
         }
         catch(Exception a){

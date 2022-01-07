@@ -2,7 +2,6 @@ package model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 
 public class Inventory {
@@ -28,18 +27,18 @@ public class Inventory {
     }
 
     public static void addTestData(){
-        availableParts wheel = new availableParts(uniqueId(), "Bike Wheel", 21.99, 4, 2, 8);
-        availableParts tube = new availableParts(uniqueId(), "Bike Tube", 10.99, 2,1, 5);
-        availableParts handlebar = new availableParts(uniqueId(), "Handlebars", 35.00, 1,1, 2);
-        availableParts seat = new availableParts(uniqueId(), "Seat", 13.99, 2,1, 4);
+        InHouse wheel = new InHouse(uniqueId(), "Bike Wheel", 21.99, 4, 2, 8);
+        InHouse tube = new InHouse(uniqueId(), "Bike Tube", 10.99, 2,1, 5);
+        InHouse handlebar = new InHouse(uniqueId(), "Handlebars", 35.00, 1,1, 2);
+        InHouse seat = new InHouse(uniqueId(), "Seat", 13.99, 2,1, 4);
         Inventory.addParts(wheel);
         Inventory.addParts(tube);
         Inventory.addParts(handlebar);
         Inventory.addParts(seat);
 
-        AvailableProducts car = new AvailableProducts(uniqueId(), "Car", 20000, 6, 4, 10);
-        AvailableProducts bike = new AvailableProducts(uniqueId(), "Bike", 200, 20, 5, 40);
-        AvailableProducts helicopter = new AvailableProducts(uniqueId(), "Helicopter", 2000000, 2, 2, 3);
+        Outsourced car = new Outsourced(uniqueId(), "Car", 20000, 6, 4, 10);
+        Outsourced bike = new Outsourced(uniqueId(), "Bike", 200, 20, 5, 40);
+        Outsourced helicopter = new Outsourced(uniqueId(), "Helicopter", 2000000, 2, 2, 3);
         Inventory.addProducts(car);
         Inventory.addProducts(bike);
         Inventory.addProducts(helicopter);
