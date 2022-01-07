@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
  *
  * @author Bryant Shipman
  */
-public abstract class Product {
+public class Product {
     private int id;
     private String name;
     private double price;

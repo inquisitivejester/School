@@ -36,9 +36,9 @@ public class Inventory {
         Inventory.addParts(handlebar);
         Inventory.addParts(seat);
 
-        Outsourced car = new Outsourced(uniqueId(), "Car", 20000, 6, 4, 10);
-        Outsourced bike = new Outsourced(uniqueId(), "Bike", 200, 20, 5, 40);
-        Outsourced helicopter = new Outsourced(uniqueId(), "Helicopter", 2000000, 2, 2, 3);
+        Product car = new Product(uniqueId(), "Car", 20000, 6, 4, 10);
+        Product bike = new Product(uniqueId(), "Bike", 200, 20, 5, 40);
+        Product helicopter = new Product(uniqueId(), "Helicopter", 2000000, 2, 2, 3);
         Inventory.addProducts(car);
         Inventory.addProducts(bike);
         Inventory.addProducts(helicopter);

@@ -34,7 +34,7 @@ public class AddPartsController implements Initializable {
     public TextField machineIdTextBox;
     public TextField minTextBox;
     public TextField idTextBox;
-    public TextField nameTextbox;
+    public TextField nameTextBox;
 
     private void toMainScreen(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -99,15 +99,25 @@ public class AddPartsController implements Initializable {
                 System.out.println("Not an Integer");
             }
             String name = null;
-            if (nameTextbox.getText().length() > 0) {
-                name = nameTextbox.getText();
+            if (nameTextBox.getText().length() > 0) {
+                name = nameTextBox.getText();
             } else {
                 System.out.println("You didn't add a name.");
             }
+            if(inventoryCheck(min, max, stock)){
+                InHouse newInHousePart = new InHouse(uniqueId(), name, price, stock, min, max);
+                Inventory.addParts(newInHousePart);
+                toMainScreen(actionEvent);
+            } else {
+                System.out.println("Need an error for minMax");
+            }
 
 
-            InHouse newAvailablePart = new InHouse(uniqueId(), name, price, stock, min, max);
-            Inventory.addParts(newAvailablePart);
+
+
+
+
+
         }
         catch(Exception a){
             System.out.println("Nothing Worked");
@@ -119,6 +129,17 @@ public class AddPartsController implements Initializable {
     public void onCancel(ActionEvent actionEvent) throws IOException {
         toMainScreen(actionEvent);
     }
+
+    private boolean inventoryCheck(int min, int max, int stock){
+        boolean inventoryGood = true;
+
+        if (min <= 0 || min >= max || stock < min || stock > max){
+            inventoryGood = false;
+
+        }
+        return inventoryGood;
+    }
+
 
 
 }

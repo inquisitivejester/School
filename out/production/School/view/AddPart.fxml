@@ -57,7 +57,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label fx:id="name_label" prefWidth="80.0" text="Name" />
-                        <TextField fx:id="nameTextbox" />
+                        <TextField fx:id="nameTextBox" />
                      </children>
                   </HBox>
                </children>
