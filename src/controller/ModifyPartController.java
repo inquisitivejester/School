@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Part;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,7 @@ public class ModifyPartController implements Initializable {
     public TextField invTextField;
     public TextField nameTextField;
     public TextField idTextBox;
+    private Part partSelected;
 
     private void toMainScreen(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -46,7 +48,14 @@ public class ModifyPartController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
-        getPartToModify();
+        partSelected = getPartToModify();
+        minTextField.setText(String.valueOf(partSelected.getMin()));
+        invTextField.setText(String.valueOf(partSelected.getStock()));
+        nameTextField.setText(String.valueOf(partSelected.getName()));
+        maxTextField.setText(String.valueOf(partSelected.getMax()));
+        priceTextField.setText(String.valueOf(partSelected.getPrice()));
+        idTextBox.setText(String.valueOf(partSelected.getId()));
+
 
     }
 
@@ -57,6 +66,7 @@ public class ModifyPartController implements Initializable {
     }
 
     public void onSave(ActionEvent actionEvent) {
+
     }
 
     public void onCancel(ActionEvent actionEvent) throws IOException {
