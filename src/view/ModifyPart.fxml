@@ -46,7 +46,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label prefHeight="17.0" prefWidth="80.0" text="ID" />
-                        <TextField alignment="CENTER_RIGHT" promptText="Auto Gen- Disabled" />
+                        <TextField fx:id="idTextBox" alignment="CENTER_RIGHT" promptText="Auto Gen- Disabled" />
                      </children>
                   </HBox>
                </children>
@@ -56,7 +56,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label fx:id="name_label" prefWidth="80.0" text="Name" />
-                        <TextField />
+                        <TextField fx:id="nameTextField" />
                      </children>
                   </HBox>
                </children>
@@ -66,7 +66,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label prefWidth="80.0" text="Inv" />
-                        <TextField />
+                        <TextField fx:id="invTextField" />
                      </children>
                   </HBox>
                </children>
@@ -76,7 +76,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label prefWidth="80.0" text="Price/Cost" />
-                        <TextField />
+                        <TextField fx:id="priceTextField" />
                      </children>
                   </HBox>
                </children>
@@ -86,7 +86,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label prefWidth="80.0" text="Max" />
-                        <TextField />
+                        <TextField fx:id="maxTextField" />
                      </children>
                   </HBox>
                </children>
@@ -96,7 +96,7 @@
                   <HBox alignment="CENTER_RIGHT">
                      <children>
                         <Label fx:id="machine_id_company_name_label" prefHeight="17.0" prefWidth="80.0" text="Machine ID" />
-                        <TextField />
+                        <TextField fx:id="machineIdTextField" />
                      </children>
                   </HBox>
                </children>
@@ -124,7 +124,7 @@
                               <Insets left="20.0" right="20.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField prefHeight="25.0" prefWidth="159.0" />
+                        <TextField fx:id="minTextField" prefHeight="25.0" prefWidth="159.0" />
                      </children>
                   </HBox>
                </children>

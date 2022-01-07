@@ -9,11 +9,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import static controller.MainController.getPartToModify;
+
 
 public class ModifyPartController implements Initializable {
     public RadioButton in_house_radio_button;
@@ -22,6 +26,13 @@ public class ModifyPartController implements Initializable {
     public RadioButton outsourced_radio_button;
     public Button modify_part_save_button;
     public Button modify_part_cancel_button;
+    public TextField minTextField;
+    public TextField machineIdTextField;
+    public TextField maxTextField;
+    public TextField priceTextField;
+    public TextField invTextField;
+    public TextField nameTextField;
+    public TextField idTextBox;
 
     private void toMainScreen(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -33,7 +44,11 @@ public class ModifyPartController implements Initializable {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){}
+    public void initialize(URL url, ResourceBundle resourceBundle){
+
+        getPartToModify();
+
+    }
 
     public void onInHouse(ActionEvent actionEvent) {
     }
