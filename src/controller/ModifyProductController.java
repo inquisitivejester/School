@@ -11,11 +11,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static controller.MainController.getPartToModify;
 import static controller.MainController.getProductToModify;
 
 public class ModifyProductController implements Initializable {
@@ -42,6 +44,7 @@ public class ModifyProductController implements Initializable {
     public TableColumn bottomPartNameColumn;
     public TableColumn bottomInventoryLevelColumn;
     public TableColumn bottomPriceColumn;
+    private Product productSelected;
 
     private void toMainScreen(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -54,7 +57,13 @@ public class ModifyProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        getProductToModify();
+        productSelected = getProductToModify();
+        minTextBox.setText(String.valueOf(productSelected.getMin()));
+        invTextBox.setText(String.valueOf(productSelected.getStock()));
+        nameTextBox.setText(String.valueOf(productSelected.getName()));
+        maxTextBox.setText(String.valueOf(productSelected.getMax()));
+        priceTextBox.setText(String.valueOf(productSelected.getPrice()));
+        IDTextBox.setText(String.valueOf(productSelected.getId()));
 
 
     }

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import controller.MainController;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import main.Main;
 import model.Part;
@@ -18,6 +19,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import static model.Inventory.getParts;
 
 public class AddProductController implements Initializable {
     public Button AddProductPageAdd;
@@ -51,7 +54,17 @@ public class AddProductController implements Initializable {
         stage.show();
     }
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){}
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        getParts();
+
+        topTable.setItems(getParts());
+
+        topTablePartId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        topTablePartName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        topTableInventoryLevel.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        topTablePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+    }
 
     public void onAdd(ActionEvent actionEvent) {
     }

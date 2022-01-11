@@ -31,10 +31,12 @@ public class Inventory {
         InHouse tube = new InHouse(uniqueId(), "Bike Tube", 10.99, 2,1, 5);
         InHouse handlebar = new InHouse(uniqueId(), "Handlebars", 35.00, 1,1, 2);
         InHouse seat = new InHouse(uniqueId(), "Seat", 13.99, 2,1, 4);
+        Outsourced chickenLiver = new Outsourced(uniqueId(), "Chicken Liver", 1.99, 2, 1, 5, "Chickn'lvers'r'us");
         Inventory.addParts(wheel);
         Inventory.addParts(tube);
         Inventory.addParts(handlebar);
         Inventory.addParts(seat);
+        Inventory.addParts(chickenLiver);
 
         Product car = new Product(uniqueId(), "Car", 20000, 6, 4, 10);
         Product bike = new Product(uniqueId(), "Bike", 200, 20, 5, 40);
