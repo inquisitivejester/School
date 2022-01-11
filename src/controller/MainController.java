@@ -14,12 +14,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import model.Inventory;
 import model.Part;
+import model.Product;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static model.Inventory.getParts;
+import static model.Inventory.getProducts;
 
 public class MainController implements Initializable {
     public TableColumn part_id;
@@ -44,12 +46,14 @@ public class MainController implements Initializable {
     public TableView<Part> parts_table;
     public TableView products_table;
     private static Part partToModify;
+    private static Product productToModify;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         getParts();
+        getProducts();
 
 
         parts_table.setItems(getParts());
@@ -59,7 +63,7 @@ public class MainController implements Initializable {
         parts_inventory_level.setCellValueFactory(new PropertyValueFactory<>("stock"));
         parts_cost_per_unit.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        products_table.setItems(Inventory.getProducts());
+        products_table.setItems(getProducts());
 
         product_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         product_name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -71,6 +75,7 @@ public class MainController implements Initializable {
         public static Part getPartToModify() {
             return partToModify;
         }
+        public static Product getProductToModify(){return productToModify;}
 
         private void toMainScreen(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("/view/MainScene.fxml"));
@@ -83,12 +88,18 @@ public class MainController implements Initializable {
 
 
         public void onModifyProducts(ActionEvent actionEvent) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPoduct.fxml"));
-            Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setTitle("Modify Products");
-            stage.setScene(scene);
-            stage.show();
+            productToModify = (Product) products_table.getSelectionModel().getSelectedItem();
+            if (productToModify == null) {
+                System.out.println("Need an alert for productToModify");
+            } else {
+
+                Parent root = FXMLLoader.load(getClass().getResource("/view/ModifyPoduct.fxml"));
+                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setTitle("Modify Products");
+                stage.setScene(scene);
+                stage.show();
+            }
         }
 
         public void onAddProducts(ActionEvent actionEvent) throws IOException {

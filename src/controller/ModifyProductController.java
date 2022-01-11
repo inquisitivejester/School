@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static controller.MainController.getProductToModify;
+
 public class ModifyProductController implements Initializable {
 
 
@@ -52,6 +54,7 @@ public class ModifyProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        getProductToModify();
 
 
     }
