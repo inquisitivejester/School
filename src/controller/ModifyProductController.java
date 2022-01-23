@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.Product;
 
@@ -19,6 +20,8 @@ import java.util.ResourceBundle;
 
 import static controller.MainController.getPartToModify;
 import static controller.MainController.getProductToModify;
+import static model.Inventory.getParts;
+import static model.Product.getAssociatedPartsInventory;
 
 public class ModifyProductController implements Initializable {
 
@@ -57,6 +60,9 @@ public class ModifyProductController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+        getParts();
+        getAssociatedPartsInventory();
+
         productSelected = getProductToModify();
         minTextBox.setText(String.valueOf(productSelected.getMin()));
         invTextBox.setText(String.valueOf(productSelected.getStock()));
@@ -64,6 +70,20 @@ public class ModifyProductController implements Initializable {
         maxTextBox.setText(String.valueOf(productSelected.getMax()));
         priceTextBox.setText(String.valueOf(productSelected.getPrice()));
         IDTextBox.setText(String.valueOf(productSelected.getId()));
+
+        topTable.setItems(getParts());
+
+        topPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        topPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        topInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        topPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        bottomTable.setItems(getAssociatedPartsInventory());
+
+        bottomPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        bottomPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        bottomInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        bottomPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
 
     }
