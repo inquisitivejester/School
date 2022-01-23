@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.Part;
 import model.Product;
 
 import java.io.IOException;
@@ -21,7 +23,7 @@ import java.util.ResourceBundle;
 import static controller.MainController.getPartToModify;
 import static controller.MainController.getProductToModify;
 import static model.Inventory.getParts;
-import static model.Product.getAssociatedPartsInventory;
+
 
 public class ModifyProductController implements Initializable {
 
@@ -61,7 +63,7 @@ public class ModifyProductController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         getParts();
-        getAssociatedPartsInventory();
+
 
         productSelected = getProductToModify();
         minTextBox.setText(String.valueOf(productSelected.getMin()));
@@ -78,7 +80,9 @@ public class ModifyProductController implements Initializable {
         topInventoryLevelColumn.setCellValueFactory(new PropertyValueFactory<>("stock"));
         topPriceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        bottomTable.setItems(getAssociatedPartsInventory());
+        ObservableList<Part> associatedParts = getProductToModify().getAssociatedPartsInventory();
+
+        bottomTable.setItems(associatedParts);
 
         bottomPartIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         bottomPartNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -89,6 +93,7 @@ public class ModifyProductController implements Initializable {
     }
 
     public void onAddButton(ActionEvent actionEvent) {
+
     }
 
     public void onRemoveAssociatedButton(ActionEvent actionEvent) {

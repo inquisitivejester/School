@@ -4,6 +4,7 @@ package model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+
 /**
  *
  * @author Bryant Shipman
@@ -15,6 +16,7 @@ public class Product {
     private int stock;
     private int min;
     private int max;
+    private ObservableList<Part> associatedPartsInventory = FXCollections.observableArrayList();
     public Product(int id, String name, double price, int stock, int min, int max) {
         this.id = id;
         this.name = name;
@@ -108,6 +110,10 @@ public class Product {
         this.max = max;
     }
 
+
+
+
+
     public void addAssociatedPart(Part part){
 
     }
@@ -115,13 +121,13 @@ public class Product {
         return True;
     }*/
 
-    private static ObservableList<Part> associatedPartsInventory = FXCollections.observableArrayList();
 
-    public static void addAssociatedParts(Part part){
+
+    public void addAssociatedParts(Part part){
 
         associatedPartsInventory.add(part);
     }
-    public static ObservableList<Part> getAssociatedPartsInventory(){
+    public ObservableList<Part> getAssociatedPartsInventory(){
 
         return associatedPartsInventory;
     }
